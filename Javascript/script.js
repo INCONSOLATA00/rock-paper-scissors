@@ -5,7 +5,8 @@ const getPlayerChoice = prompt('type, either; rock, paper or scissors')
 // getComputerChoice (random)
 
 function getComputerChoice() {
-randomNumber = Math.ceil(Math.random() * 3);}
+    randomNumber = Math.ceil(Math.random() * 3);
+}
 
 if (randomNumber == 1) {
     return "rock";
@@ -20,12 +21,18 @@ if (randomNumber == 1) {
 
 function singleRound(getPlayerChoice, getComputerChoice) {
 }
-if  (getPlayerChoice == getComputerChoice) {
-return 'Draw'
-} else if (getPlayerChoice == 'rock' && getComputerChoice == 'paper')
-return 'Computer Wins'
-
-
+if (getPlayerChoice == getComputerChoice) {
+    return 'Draw'
+}
+else if (getPlayerChoice == 'rock' && getComputerChoice == 'paper') {
+    return 'Computer Wins'
+}
+else if (getPlayerChoice == 'scissors' && getComputerChoice == 'rock') {
+    return 'Computer Wins'
+}
+else if (getPlayerChoice == 'paper' && getComputerChoice == 'scissors') {
+    return 'Computer Wins'
+}
 
 
 
