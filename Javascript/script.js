@@ -1,8 +1,8 @@
-// getPlayerChoice (fixed)
+
 
 const getPlayerChoice = prompt('type either, rock, paper, or scissors')
 
-// getComputerChoice (random)
+
 
 function getComputerChoice() {
     randomNumber = Math.ceil(Math.random() * 3);
@@ -18,8 +18,7 @@ if (randomNumber == 1) {
 
 }
 
-// Play single round (list all scenario where the computer wins first to
-// eliminate all variables)
+
 
 function singleRound(getPlayerChoice, getComputerChoice) {
 
@@ -40,5 +39,6 @@ else if (getPlayerChoice == 'paper' && getComputerChoice == 'scissors') {
 
 }
 
-getComputerChoice();
+console.log(singleRound(getcomputerChoice, getComputerChoice));
+
 
