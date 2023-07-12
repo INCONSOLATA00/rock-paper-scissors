@@ -1,6 +1,7 @@
 
 
 const getPlayerChoice = prompt('type either, rock, paper, or scissors')
+const computerSelection = getComputerChoice();
 
 
 
@@ -39,6 +40,4 @@ else if (getPlayerChoice == 'paper' && getComputerChoice == 'scissors') {
 
 }
 
-console.log(singleRound(getcomputerChoice, getComputerChoice));
-
-
+console.log(singleRound(getPlayerChoice, computerSelection));
