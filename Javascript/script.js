@@ -1,10 +1,10 @@
-let getPlayerChoice = prompt('type either, rock, paper, or scissors');
-const playerResponseConversion = getPlayerChoice.toLowerCase();
-console.log(`convert string to lower case:  ${playerResponseConversion}`);
+let getPlayerChoice = (button) => {
+return button;
+};
+
 
 function getComputerChoice() {
     randomNumber = Math.ceil(Math.random() * 3);
-
 
     if (randomNumber == 1) {
         return 'rock';
@@ -13,9 +13,7 @@ function getComputerChoice() {
     } else {
         return 'scissors';
     }
-
 }
-
 function singleRound(getPlayerChoice, getComputerChoice) {
 
     if (getPlayerChoice == getComputerChoice) {
@@ -29,9 +27,7 @@ function singleRound(getPlayerChoice, getComputerChoice) {
     } else {
         return 'Player Wins';
     }
-
 }
-
 console.log(singleRound(getPlayerChoice, getComputerChoice));
 
 // RUN: single round 5 times; keep score / log, determine the higher number as winner.
