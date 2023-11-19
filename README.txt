@@ -1,1 +1,1 @@
-This files location my be moved to a different repository -
+uses convention for readability
