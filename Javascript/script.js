@@ -32,7 +32,7 @@ let getPlayerChoice = (playerChosenButton) => {
         }
     }
 };
-
+const alsoResult = document.querySelector('.result');
 
 
 // RUN: single round 5 times; keep score / log, determine the higher number as winner.
