@@ -1,6 +1,9 @@
+let isComputer = 0;
+let isPlayer = 0;
+
 let computerAns;
 let getPlayerChoice = (playerChosenButton) => {
-    
+
     console.log(playerChosenButton);
     getComputerChoice();
         function getComputerChoice() {
@@ -18,21 +21,31 @@ let getPlayerChoice = (playerChosenButton) => {
         }
 
     function singleRound(playerChosenButton, computerAns) {
-
-        if (playerChosenButton == computerAns) {
+    
+        if (playerChosenButton == computerAns) { // *CONTAINS: monetary results*
             console.log('Draw');
+            final = 'Draw';
         } else if (playerChosenButton == 'rock' && computerAns == 'paper') {
             console.log('Computer Wins');
+            isComputer += 1;
         } else if (playerChosenButton == 'scissors' && computerAns == 'rock') {
             console.log('Computer Wins');
+            isComputer += 1;
         } else if (playerChosenButton == 'paper' && computerAns == 'scissors') {
             console.log('Computer Wins');
+            isComputer += 1;
         } else {
             console.log('Player Wins');
+            isPlayer += 1;
         }
     }
+    console.log(`is final ${final}`);   // ??
 };
+
 const alsoResult = document.querySelector('.result');
+const resultText = document.createElement('p');
+resultText.textContent = final;
 
 
-// RUN: single round 5 times; keep score / log, determine the higher number as winner.
+
+// initialize and append results to corresponding elements.
