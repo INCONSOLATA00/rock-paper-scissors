@@ -41,20 +41,35 @@ let getPlayerChoice = (playerChosenButton) => {
             isPlayer += 1;
         }
     }
-    round ++;
-    document.querySelector('.result').innerText = `round ${round}/5`;
-    document.querySelector('p').innerText = `result: ${narration}`;
+   round ++;
+   // call a function here that executes the last step and passes a variable 'result' from the previous funciton to the new one.
+}; // is
+   const result = document.querySelector('.result').innerText = `round ${round}/5`;
+   const finalResult = document.querySelector('.finalResult');
+
+   document.querySelector('p').innerText = `result: ${narration}`;
 
     if(round == 5 && isPlayer > isComputer) {
-    narration = 'congratulations, you won!'
-    round == 0;
-    console.log(narration);
-    } else if (round == 5 && isPlayer < isComputer){ 
-    narration = 'you lost bud, better luck next time'
+        if (result) {
+            result.remove();
+        }
+    finalResult.innerText = 'congratulations, you won!';
     round = 0;
-    console.log(narration);
-    } else {
-    narration = 'draw';
-    console.log(narration);
+    
+    } else if (round == 5 && isPlayer < isComputer){
+        if (result) {
+            result.remove();
+        } 
+    
+    finalResult.innerText = 'you lost bud, better luck next time';
+    round = 0;
+   
+    } else if(round == 5 && isPlayer == 5 && isComputer == 5) {
+        if (result) {
+            result.remove();
+        }
+    finalResult.innerText = 'it was a tie!';
+    round = 0;
     }
-};
+    console.log(round);
+// was
