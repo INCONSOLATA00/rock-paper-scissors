@@ -1,11 +1,12 @@
 let isComputer = 0;
 let isPlayer = 0;
+
 let narration;
+let round = 0;
 
 let computerAns;
 let getPlayerChoice = (playerChosenButton) => { // PLAYER
     
-    let round = '';
     console.log(playerChosenButton);
     getComputerChoice();
 
@@ -46,8 +47,7 @@ let getPlayerChoice = (playerChosenButton) => { // PLAYER
     finalFunc(round);
 };
 
-function finalFunc(round, isPlayer, isComputer) { // player score is global incl computer; suggests that round is then retrieved from the above function.
-// CURRENT: round seems to be inacsessible, reason unknown.
+function finalFunc() {
     const result = document.querySelector('.result').innerText = `round ${round}/5`;
     const finalResult = document.querySelector('.finalResult');
     document.querySelector('p').innerText = `result: ${narration}`;
