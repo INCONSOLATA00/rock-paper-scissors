@@ -1,4 +1,4 @@
-let isComputer = 0; 
+let isComputer = 0;
 let isPlayer = 0;
 
 let narration;
@@ -9,22 +9,23 @@ let getPlayerChoice = (playerChosenButton) => {
 
     console.log(playerChosenButton);
     getComputerChoice();
-        function getComputerChoice() {
 
-            randomNumber = Math.ceil(Math.random() * 3);
+    function getComputerChoice() {
 
-            if (randomNumber == 1) {
-                computerAns = 'rock';
-            } else if (randomNumber == 2) {
-                computerAns = 'paper';
-            } else {
-                computerAns = 'scissors';
-            }
-                return  singleRound(playerChosenButton, computerAns);
+        randomNumber = Math.ceil(Math.random() * 3);
+
+        if (randomNumber == 1) {
+            computerAns = 'rock';
+        } else if (randomNumber == 2) {
+            computerAns = 'paper';
+        } else {
+            computerAns = 'scissors';
         }
+        return singleRound(playerChosenButton, computerAns);
+    }
 
     function singleRound(playerChosenButton, computerAns) {
-    
+
         if (playerChosenButton == computerAns) { // *CONTAINS: monetary results*
             narration = "it's a draw";
         } else if (playerChosenButton == 'rock' && computerAns == 'paper') {
@@ -41,35 +42,36 @@ let getPlayerChoice = (playerChosenButton) => {
             isPlayer += 1;
         }
     }
-   round ++;
-   // call a function here that executes the last step and passes a variable 'result' from the previous funciton to the new one.
-}; // is
-   const result = document.querySelector('.result').innerText = `round ${round}/5`;
-   const finalResult = document.querySelector('.finalResult');
+    round++;
+    finalFunc();
+};
 
-   document.querySelector('p').innerText = `result: ${narration}`;
+function finalFunc(round,isPlayer,isComputer) {
 
-    if(round == 5 && isPlayer > isComputer) {
-        if (result) {
-            result.remove();
-        }
+const result = document.querySelector('.result').innerText = `round ${round}/5`;
+const finalResult = document.querySelector('.finalResult');
+document.querySelector('p').innerText = `result: ${narration}`;
+
+if (round == 5 && isPlayer > isComputer) {
+    if (result) {
+        result.remove();
+    }
     finalResult.innerText = 'congratulations, you won!';
     round = 0;
-    
-    } else if (round == 5 && isPlayer < isComputer){
-        if (result) {
-            result.remove();
-        } 
-    
+
+} else if (round == 5 && isPlayer < isComputer) {
+    if (result) {
+        result.remove();
+    }
+
     finalResult.innerText = 'you lost bud, better luck next time';
     round = 0;
-   
-    } else if(round == 5 && isPlayer == 5 && isComputer == 5) {
-        if (result) {
-            result.remove();
-        }
+
+} else if (round == 5 && isPlayer == 5 && isComputer == 5) {
+    if (result) {
+        result.remove();
+    }
     finalResult.innerText = 'it was a tie!';
     round = 0;
-    }
-    console.log(round);
-// was
+}}
+console.log(round);
