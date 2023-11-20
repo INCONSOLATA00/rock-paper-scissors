@@ -1,5 +1,8 @@
-let isComputer = 0;
+let isComputer = 0; 
 let isPlayer = 0;
+
+let narration;
+let round = 0;
 
 let computerAns;
 let getPlayerChoice = (playerChosenButton) => {
@@ -23,29 +26,28 @@ let getPlayerChoice = (playerChosenButton) => {
     function singleRound(playerChosenButton, computerAns) {
     
         if (playerChosenButton == computerAns) { // *CONTAINS: monetary results*
-            console.log('Draw');
-            final = 'Draw';
+            narration = "it's a draw";
         } else if (playerChosenButton == 'rock' && computerAns == 'paper') {
-            console.log('Computer Wins');
+            narration = 'the computer wins!'
             isComputer += 1;
         } else if (playerChosenButton == 'scissors' && computerAns == 'rock') {
-            console.log('Computer Wins');
+            narration = 'the computer wins!'
             isComputer += 1;
         } else if (playerChosenButton == 'paper' && computerAns == 'scissors') {
-            console.log('Computer Wins');
+            narration = 'the computer wins!'
             isComputer += 1;
         } else {
-            console.log('Player Wins');
+            narration = 'the player wins!'
             isPlayer += 1;
         }
     }
-    console.log(`is final ${final}`);   // ??
+    round ++;
+    const alsoResult = document.querySelector('.result');
+    alsoResult.firsChild = `result: ${narration}`;
+
+    alsoResult.innerText = `round ${round}/5`;
+    if(round > 5 && isPlayer > isComputer) {
+    
+    }
+    
 };
-
-const alsoResult = document.querySelector('.result');
-const resultText = document.createElement('p');
-resultText.textContent = final;
-
-
-
-// initialize and append results to corresponding elements.
