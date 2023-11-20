@@ -1,16 +1,15 @@
 let isComputer = 0;
 let isPlayer = 0;
-
 let narration;
-let round = 0;
 
 let computerAns;
-let getPlayerChoice = (playerChosenButton) => {
-
+let getPlayerChoice = (playerChosenButton) => { // PLAYER
+    
+    let round = '';
     console.log(playerChosenButton);
     getComputerChoice();
 
-    function getComputerChoice() {
+    function getComputerChoice() { //COMPUTER
 
         randomNumber = Math.ceil(Math.random() * 3);
 
@@ -42,36 +41,37 @@ let getPlayerChoice = (playerChosenButton) => {
             isPlayer += 1;
         }
     }
-    round++;
-    finalFunc();
+    round += 1;
+    console.log(round);
+    finalFunc(round);
 };
 
-function finalFunc(round,isPlayer,isComputer) {
+function finalFunc(round, isPlayer, isComputer) { // player score is global incl computer; suggests that round is then retrieved from the above function.
+// CURRENT: round seems to be inacsessible, reason unknown.
+    const result = document.querySelector('.result').innerText = `round ${round}/5`;
+    const finalResult = document.querySelector('.finalResult');
+    document.querySelector('p').innerText = `result: ${narration}`;
 
-const result = document.querySelector('.result').innerText = `round ${round}/5`;
-const finalResult = document.querySelector('.finalResult');
-document.querySelector('p').innerText = `result: ${narration}`;
+    if (round == 5 && isPlayer > isComputer) {
+        if (result) {
+            result.remove();
+        }
+        finalResult.innerText = 'congratulations, you won!';
+        round = 0;
 
-if (round == 5 && isPlayer > isComputer) {
-    if (result) {
-        result.remove();
+    } else if (round == 5 && isPlayer < isComputer) {
+        if (result) {
+            result.remove();
+        }
+
+        finalResult.innerText = 'you lost bud, better luck next time';
+        round = 0;
+
+    } else if (round == 5 && isPlayer == 5 && isComputer == 5) {
+        if (result) {
+            result.remove();
+        }
+        finalResult.innerText = 'it was a tie!';
+        round = 0;
     }
-    finalResult.innerText = 'congratulations, you won!';
-    round = 0;
-
-} else if (round == 5 && isPlayer < isComputer) {
-    if (result) {
-        result.remove();
-    }
-
-    finalResult.innerText = 'you lost bud, better luck next time';
-    round = 0;
-
-} else if (round == 5 && isPlayer == 5 && isComputer == 5) {
-    if (result) {
-        result.remove();
-    }
-    finalResult.innerText = 'it was a tie!';
-    round = 0;
-}}
-console.log(round);
+}
