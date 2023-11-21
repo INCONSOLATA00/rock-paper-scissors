@@ -26,6 +26,11 @@ body {
     height: 180px;
 }
 
+.buttons p {
+    display: flex;
+    justify-content: center;
+}
+
 button {
     height: 40px;
     margin-top: 30px;

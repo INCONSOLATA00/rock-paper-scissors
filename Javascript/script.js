@@ -1,6 +1,8 @@
+const wrapper = document.querySelector('.wrapper');
 const result = document.querySelector('#result');
 const score = document.querySelector('#score');
 
+const buttons = document.querySelector('.buttons');
 const finalResult = document.querySelector('#finalResult');
 finalResult.remove();
 
@@ -51,6 +53,7 @@ let getPlayerChoice = (playerChosenButton) => { // PLAYER
         }
     }
     round += 1;
+    score.innerText = `round ${round}/5`;
     console.log(round);
     finalFunc();
 };
@@ -60,21 +63,23 @@ function finalFunc() {
 
     if (round == 5 && isPlayer > isComputer) {
         result.remove();
-        body.appendChild(finalResult);
+        buttons.append(finalResult); // *FIND THE CORRECT SYNTAX*
+        finalResult.appendChild(score);
         finalResult.innerText = 'congratulations, you won!';
         round = 0;
 
     } else if (round == 5 && isPlayer < isComputer) {
         result.remove();
-        body.appendChild(finalResult);
+        buttons.append(finalResult); // *FIND THE CORRECT SYNTAX*
+        finalResult.appendChild(score);
         finalResult.innerText = 'you lost bud, better luck next time';
         round = 0;
 
     } else if (round == 5 && isPlayer == 5 && isComputer == 5) {
         result.remove();
-        body.appendChild(finalResult);
+        buttons.append(finalResult); // *FIND THE CORRECT SYNTAX*
+        finalResult.appendChild(score);
         finalResult.innerText = 'it was a tie!';
         round = 0;
     }
 }
-score.innerText = `round ${round}/5`;
