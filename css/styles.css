@@ -2,30 +2,33 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
     background-color: lightgrey;
-    height: 100vh;
+    height: 100vh; 
+}
+
+#result, #score {
+    margin: 0px;
+    margin-top: 12px;
+    height: 20px; 
 }
 
 .wrapper {
+    margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 
     background-color: grey;
     border-radius: 3.8px;
 
     width: 500px;
-    height: 100px;
-}
-
-#score {
-    margin: 0px;
+    height: 180px;
 }
 
 button {
-    margin: 2.8px;
+    height: 40px;
+    margin-top: 30px;
     border-radius: 3.8px;
     padding: 10px 20px;
     font-size: 16px;

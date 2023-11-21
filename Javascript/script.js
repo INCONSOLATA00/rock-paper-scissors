@@ -1,6 +1,9 @@
 const result = document.querySelector('#result');
-const finalResult = document.querySelector('#finalResult');
 const score = document.querySelector('#score');
+
+const finalResult = document.querySelector('#finalResult');
+finalResult.remove();
+
 
 let isComputer = 0;
 let isPlayer = 0;
@@ -42,6 +45,7 @@ let getPlayerChoice = (playerChosenButton) => { // PLAYER
             narration = 'the computer wins this round!'
             isComputer += 1;
         } else {
+
             narration = 'the player wins this round!'
             isPlayer += 1;
         }
@@ -56,19 +60,21 @@ function finalFunc() {
 
     if (round == 5 && isPlayer > isComputer) {
         result.remove();
+        body.appendChild(finalResult);
         finalResult.innerText = 'congratulations, you won!';
         round = 0;
 
     } else if (round == 5 && isPlayer < isComputer) {
         result.remove();
+        body.appendChild(finalResult);
         finalResult.innerText = 'you lost bud, better luck next time';
         round = 0;
 
     } else if (round == 5 && isPlayer == 5 && isComputer == 5) {
         result.remove();
+        body.appendChild(finalResult);
         finalResult.innerText = 'it was a tie!';
         round = 0;
     }
 }
-
 score.innerText = `round ${round}/5`;
