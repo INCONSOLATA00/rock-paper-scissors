@@ -6,14 +6,14 @@ const buttons = document.querySelector('.buttons');
 const finalResult = document.querySelector('#finalResult');
 finalResult.remove();
 
-
 let isComputer = 0;
 let isPlayer = 0;
 
 let narration;
 let round = 0;
-
+let initializer = -1;
 let computerAns;
+
 let getPlayerChoice = (playerChosenButton) => { // PLAYER
 
     console.log(playerChosenButton);
@@ -40,12 +40,15 @@ let getPlayerChoice = (playerChosenButton) => { // PLAYER
         } else if (playerChosenButton == 'rock' && computerAns == 'paper') {
             narration = 'the computer wins this round!'
             isComputer += 1;
+
         } else if (playerChosenButton == 'scissors' && computerAns == 'rock') {
             narration = 'the computer wins this round!'
             isComputer += 1;
+
         } else if (playerChosenButton == 'paper' && computerAns == 'scissors') {
             narration = 'the computer wins this round!'
             isComputer += 1;
+
         } else {
 
             narration = 'the player wins this round!'
@@ -53,33 +56,51 @@ let getPlayerChoice = (playerChosenButton) => { // PLAYER
         }
     }
     round += 1;
+    initializer += 1;
     score.innerText = `round ${round}/5`;
-    console.log(round);
+
+    console.log(`round ${round}`);
+    console.log(`initializer (IGNORE) ${initializer}`);
+
     finalFunc();
 };
 
 function finalFunc() {
-    document.querySelector('p').innerText = `result: ${narration}`; // already a globally accesible
+    document.querySelector('p').innerText = `result: ${narration}`; // Score gets overridden with the final result narration.
 
     if (round == 5 && isPlayer > isComputer) {
         result.remove();
-        buttons.append(finalResult); // *FIND THE CORRECT SYNTAX*
+        buttons.append(finalResult);
         finalResult.appendChild(score);
         finalResult.innerText = 'congratulations, you won!';
-        round = 0;
 
+        round = 0;
+        if (initializer == 5) {
+            console.log('reset');
+            }
+            initializer = -1;
     } else if (round == 5 && isPlayer < isComputer) {
         result.remove();
-        buttons.append(finalResult); // *FIND THE CORRECT SYNTAX*
+        buttons.append(finalResult);
         finalResult.appendChild(score);
         finalResult.innerText = 'you lost bud, better luck next time';
+
         round = 0;
+        if (initializer == 5) {
+            console.log('reset');
+            }
+            initializer = -1;
 
     } else if (round == 5 && isPlayer == 5 && isComputer == 5) {
         result.remove();
-        buttons.append(finalResult); // *FIND THE CORRECT SYNTAX*
+        buttons.append(finalResult);
         finalResult.appendChild(score);
         finalResult.innerText = 'it was a tie!';
+        
         round = 0;
+        if (initializer == 5) {
+            console.log('reset');
+            }
+            initializer = -1;
     }
 }
