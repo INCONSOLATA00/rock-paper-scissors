@@ -11,7 +11,8 @@ let isPlayer = 0;
 
 let narration;
 let round = 0;
-let initializer = -1;
+
+let initializer = 0;
 let computerAns;
 
 let getPlayerChoice = (playerChosenButton) => { // PLAYER
@@ -60,7 +61,8 @@ let getPlayerChoice = (playerChosenButton) => { // PLAYER
     score.innerText = `round ${round}/5`;
 
     console.log(`round ${round}`);
-    console.log(`initializer (IGNORE) ${initializer}`);
+    console.log(`initializer ${initializer}`)
+
 
     finalFunc();
 };
@@ -75,10 +77,12 @@ function finalFunc() {
         finalResult.innerText = 'congratulations, you won!';
 
         round = 0;
-        if (initializer == 5) {
-            console.log('reset');
-            }
-            initializer = -1;
+        if (initializer ==  6) {
+            finalResult.remove()
+            finalResult.append(result);
+            finalResult.appendChild(score);
+        }
+
     } else if (round == 5 && isPlayer < isComputer) {
         result.remove();
         buttons.append(finalResult);
@@ -86,21 +90,23 @@ function finalFunc() {
         finalResult.innerText = 'you lost bud, better luck next time';
 
         round = 0;
-        if (initializer == 5) {
-            console.log('reset');
-            }
-            initializer = -1;
+        if (initializer == 6) {
+            finalResult.remove()
+            finalResult.append(result);
+            finalResult.appendChild(score);
+        }
 
     } else if (round == 5 && isPlayer == 5 && isComputer == 5) {
         result.remove();
         buttons.append(finalResult);
         finalResult.appendChild(score);
         finalResult.innerText = 'it was a tie!';
-        
+
         round = 0;
-        if (initializer == 5) {
-            console.log('reset');
-            }
-            initializer = -1;
+        if (initializer == 6) {
+            finalResult.remove()
+            finalResult.append(result);
+            finalResult.appendChild(score);
+        }
     }
 }
