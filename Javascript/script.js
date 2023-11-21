@@ -1,5 +1,6 @@
-const result = document.querySelector('.result');
-const finalResult = document.querySelector('.finalResult');
+const result = document.querySelector('#result');
+const finalResult = document.querySelector('#finalResult');
+const score = document.querySelector('#score');
 
 let isComputer = 0;
 let isPlayer = 0;
@@ -51,8 +52,7 @@ let getPlayerChoice = (playerChosenButton) => { // PLAYER
 };
 
 function finalFunc() {
-    result.innerText = `round ${round}/5`;
-    document.querySelector('p').innerText = `result: ${narration}`;
+    document.querySelector('p').innerText = `result: ${narration}`; // already a globally accesible
 
     if (round == 5 && isPlayer > isComputer) {
         result.remove();
@@ -70,3 +70,5 @@ function finalFunc() {
         round = 0;
     }
 }
+
+score.innerText = `round ${round}/5`;

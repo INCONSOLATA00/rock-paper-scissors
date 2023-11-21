@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgrey;
+    height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: grey;
+    border-radius: 3.8px;
+
+    width: 500px;
+    height: 100px;
+}
+
+#score {
+    margin: 0px;
+}
+
+button {
+    margin: 2.8px;
+    border-radius: 3.8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.rock {
+    background-color: #f44336;
+    color: white;
+}
+
+button.paper {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button.scissors {
+    background-color: #008CBA;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
+}
