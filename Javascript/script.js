@@ -11,8 +11,6 @@ let isPlayer = 0;
 
 let narration;
 let round = 0;
-
-let initializer = 0;
 let computerAns;
 
 let getPlayerChoice = (playerChosenButton) => { // PLAYER
@@ -57,56 +55,39 @@ let getPlayerChoice = (playerChosenButton) => { // PLAYER
         }
     }
     round += 1;
-    initializer += 1;
     score.innerText = `round ${round}/5`;
-
     console.log(`round ${round}`);
-    console.log(`initializer ${initializer}`)
-
 
     finalFunc();
 };
 
 function finalFunc() {
-    document.querySelector('p').innerText = `result: ${narration}`; // Score gets overridden with the final result narration.
+    document.querySelector('p').innerText = `result: ${narration}`; // How to use conditionals to append on to a non existent node
 
     if (round == 5 && isPlayer > isComputer) {
         result.remove();
-        buttons.append(finalResult);
-        finalResult.appendChild(score);
+        buttons.append(finalResult); 
+        buttons.appendChild(score); 
         finalResult.innerText = 'congratulations, you won!';
 
         round = 0;
-        if (initializer ==  6) {
-            finalResult.remove()
-            finalResult.append(result);
-            finalResult.appendChild(score);
-        }
 
     } else if (round == 5 && isPlayer < isComputer) {
         result.remove();
         buttons.append(finalResult);
-        finalResult.appendChild(score);
+        buttons.appendChild(score);
         finalResult.innerText = 'you lost bud, better luck next time';
 
         round = 0;
-        if (initializer == 6) {
-            finalResult.remove()
-            finalResult.append(result);
-            finalResult.appendChild(score);
-        }
 
     } else if (round == 5 && isPlayer == 5 && isComputer == 5) {
         result.remove();
         buttons.append(finalResult);
-        finalResult.appendChild(score);
+        buttons.appendChild(score);
         finalResult.innerText = 'it was a tie!';
 
         round = 0;
-        if (initializer == 6) {
-            finalResult.remove()
-            finalResult.append(result);
-            finalResult.appendChild(score);
-        }
+
     }
+
 }
