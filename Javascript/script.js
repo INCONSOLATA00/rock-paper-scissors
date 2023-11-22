@@ -66,8 +66,8 @@ function finalFunc() {
 
     if (round == 5 && isPlayer > isComputer) {
         result.remove();
-        buttons.append(finalResult); 
-        buttons.appendChild(score); 
+        buttons.append(finalResult);
+        buttons.appendChild(score);
         finalResult.innerText = 'congratulations, you won!';
 
         round = 0;
