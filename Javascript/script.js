@@ -13,13 +13,17 @@ let narration;
 let round = 0;
 let computerAns;
 
-let getPlayerChoice = (playerChosenButton) => { // PLAYER
+let getPlayerChoice = (playerChosenButton) => {
 
-    console.log(playerChosenButton);
+    // console.log(playerChosenButton);
     getComputerChoice();
+    console.log('----------');
+    console.log(`round: ${round}`);
+    console.log(`computer: ${isComputer}`);
+    console.log(`player: ${isPlayer}`);
 
-    function getComputerChoice() { //COMPUTER
-
+    function getComputerChoice() {
+        round += 1;
         randomNumber = Math.ceil(Math.random() * 3);
 
         if (randomNumber == 1) {
@@ -34,7 +38,7 @@ let getPlayerChoice = (playerChosenButton) => { // PLAYER
 
     function singleRound(playerChosenButton, computerAns) {
 
-        if (playerChosenButton == computerAns) { // *CONTAINS: monetary results*
+        if (playerChosenButton == computerAns) {
             narration = "it's a draw";
         } else if (playerChosenButton == 'rock' && computerAns == 'paper') {
             narration = 'the computer wins this round!'
@@ -54,39 +58,34 @@ let getPlayerChoice = (playerChosenButton) => { // PLAYER
             isPlayer += 1;
         }
     }
-    round += 1;
-    score.innerText = `round ${round}/5`;
-    console.log(`round ${round}`);
 
+    score.innerText = `round ${round}/5`;
     finalFunc();
 };
 
 function finalFunc() {
-    document.querySelector('p').innerText = `result: ${narration}`; // How to use conditionals to append on to a non existent node
+    document.querySelector('p').innerText = `result: ${narration}`;
 
     if (round == 5 && isPlayer > isComputer) {
         result.remove();
-        buttons.append(finalResult);
-        buttons.appendChild(score);
+        buttons.append(finalResult); buttons.appendChild(score);
         finalResult.innerText = 'congratulations, you won!';
 
-        round = 0;
+        round = 0; isComputer = 0; isPlayer =0;
 
     } else if (round == 5 && isPlayer < isComputer) {
         result.remove();
-        buttons.append(finalResult);
-        buttons.appendChild(score);
+        buttons.append(finalResult); buttons.appendChild(score);
         finalResult.innerText = 'you lost bud, better luck next time';
 
-        round = 0;
+        round = 0; isComputer = 0; isPlayer =0;
 
     } else if (round == 5 && isPlayer == 5 && isComputer == 5) {
         result.remove();
-        buttons.append(finalResult);
-        buttons.appendChild(score);
+        buttons.append(finalResult); buttons.appendChild(score);
         finalResult.innerText = 'it was a tie!';
 
-        round = 0;
+        round = 0; isComputer = 0; isPlayer =0;
 
     }
 
