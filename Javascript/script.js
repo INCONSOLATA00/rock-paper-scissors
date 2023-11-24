@@ -80,7 +80,7 @@ function finalFunc() {
 
         round = 0; isComputer = 0; isPlayer =0;
 
-    } else if (round == 5 && isPlayer == 5 && isComputer == 5) {
+    } else if (round == 5 && isPlayer == isComputer) {
         result.remove();
         buttons.append(finalResult); buttons.appendChild(score);
         finalResult.innerText = 'it was a tie!';
